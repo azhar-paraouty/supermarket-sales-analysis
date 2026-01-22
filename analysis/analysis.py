@@ -14,11 +14,48 @@ df = pd.read_csv("../data_raw/SampleSuperstore.csv")
 print(df.head())
 print(df.info())
 
+# ======================
+# DESCRIPTIVE STATISTICS
+# ======================
+
+# Select numerical columns
+numeric_cols = ["Sales", "Quantity", "Discount", "Profit"]
+
+stats_summary = df[numeric_cols].describe()
+
+print("\nDescriptive Statistics:")
+print(stats_summary)
+
+# Save statistics to Excel
+stats_summary.to_excel("../outputs/descriptive_statistics.xlsx")
+
 # Clean column names
 df.columns = df.columns.str.strip()
 
 # Save clean copy to Excel
 df.to_excel("../data_clean/supermarket_clean.xlsx", index=False)
+
+# ======================
+# DISCOUNT ANALYSIS
+# ======================
+
+discount_analysis = (
+    df.groupby("Discount")
+      .agg(
+          avg_profit=("Profit", "mean"),
+          total_profit=("Profit", "sum"),
+          order_count=("Profit", "count")
+      )
+      .reset_index()
+)
+
+print("\nDiscount analysis (top rows):")
+print(discount_analysis.head())
+
+print("\nDiscount analysis (bottom rows):")
+print(discount_analysis.tail())
+
+discount_analysis.to_excel("../outputs/discount_analysis.xlsx", index=False)
 
 # ======================
 # ANALYSIS

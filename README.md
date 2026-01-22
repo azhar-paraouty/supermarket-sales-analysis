@@ -19,9 +19,16 @@ To analyse sales and profit performance across regions, categories, and discount
 - Relationship between discount levels and profitability
 - Identification of loss-making sub-categories
 
+## 🔑 Key Insights
+- Discounting beyond 30% consistently leads to negative profitability, suggesting margins cannot sustain aggressive price reductions.
+
+## 📈 Analytical Approach
+The analysis begins with descriptive statistics to understand the distribution and variability of sales, discounts, and profits before drawing business conclusions.
+
 ## 📁 Outputs
 - Cleaned Excel dataset
 - Business-ready charts (PNG)
+- Descriptive Statistics and Discount Analysis Excel datasets
 
 ## 💡 Skills Demonstrated
 - Data cleaning and transformation
